@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import domtoimage from "dom-to-image";
+import * as htmlToImage from 'html-to-image';
 
 interface ParipathData {
   dateStr: string;
@@ -52,29 +52,36 @@ export default function Home() {
     setDownloading(true);
 
     try {
-      // Temporarily remove margin/transformations for clean render if any exist globally
       const board = boardRef.current;
-      board.style.transform = "scale(1)";
-      board.style.margin = "0";
 
-      // Use dom-to-image which handles SVGs and modern react DOMs more reliably than html2canvas
-      const dataUrl = await domtoimage.toPng(board, {
-        bgcolor: "#fffaf0",
+      // Temporarily stash the transform to prevent offset cropping
+      const originalTransform = board.style.transform;
+      board.style.transform = 'none';
+
+      // 2x scale for HD quality
+      const scale = 2;
+      const dataUrl = await htmlToImage.toPng(board, {
         quality: 1,
-        height: board.scrollHeight,
-        width: board.scrollWidth,
+        backgroundColor: '#fffaf0',
+        width: board.offsetWidth * scale,
+        height: board.offsetHeight * scale,
         style: {
-          transform: 'scale(1)',
-          transformOrigin: 'top left'
+          transform: `scale(${scale})`,
+          transformOrigin: 'top left',
+          width: `${board.offsetWidth}px`,
+          height: `${board.offsetHeight}px`
         }
       });
 
+      // Restore the board scaling
+      board.style.transform = originalTransform;
+
       const a = document.createElement("a");
       a.href = dataUrl;
-      a.download = `Paripath_${date}.png`;
+      a.download = `Paripath_${date}_HD.png`;
       a.click();
     } catch (err) {
-      console.error("Dom to image error:", err);
+      console.error("html-to-image error:", err);
       alert("इमेज तयार करताना काही अडचण आली. कृपया पुन्हा प्रयत्न करा.");
     } finally {
       setDownloading(false);

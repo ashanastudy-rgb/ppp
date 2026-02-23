@@ -126,6 +126,8 @@ class handler(BaseHTTPRequestHandler):
         formatted_date = f"{to_marathi(d)} {monthNamesMr[m - 1]} {to_marathi(y)}"
         formatted_day = dayNamesMr[day_of_week]
         
+        # In Python m and d are integers, so f"{m}-{d}" removes leading zeros automatically!
+        # e.g., 2-19 for Feb 19th
         din_key = f"{m}-{d}"
         dinvishesh = dinvisheshData.get(din_key, "<li>आजचा कोणताही महत्त्वाचा दिनविशेष नाही. (येथे क्लिक करून माहिती भरा)</li>")
         

@@ -91,21 +91,21 @@ class handler(BaseHTTPRequestHandler):
         ]
 
         englishWords = [
-            { "e": "Curiosity", "m": "जिज्ञासा", "s1": "Children have a lot of curiosity about nature.", "s2": "(मुलांना निसर्गाबद्दल खूप जिज्ञासा असते.)" },
-            { "e": "Honesty", "m": "प्रामाणिकपणा", "s1": "Honesty is the best policy.", "s2": "(प्रामाणिकपणा हे सर्वोत्कृष्ट धोरण आहे.)" },
-            { "e": "Patience", "m": "संयम", "s1": "Patience is a key to success.", "s2": "(संयम ही यशाची गुरुकिल्ली आहे.)" },
-            { "e": "Respect", "m": "आदर", "s1": "We should respect our elders.", "s2": "(आपण आपल्या थोरामोठ्यांचा आदर केला पाहिजे.)" },
-            { "e": "Knowledge", "m": "ज्ञान", "s1": "Knowledge is power.", "s2": "(ज्ञान हीच शक्ती आहे.)" },
-            { "e": "Brave", "m": "शूरवीर", "s1": "Shivaji Maharaj was a brave leader.", "s2": "(शिवाजी महाराज एक शूरवीर नेते होते.)" },
-            { "e": "Nature", "m": "निसर्ग", "s1": "We must protect our nature.", "s2": "(आपण निसर्गाचे रक्षण केले पाहिजे.)" },
-            { "e": "Success", "m": "यश", "s1": "Hard work leads to success.", "s2": "(कठोर परिश्रमाने यश मिळते.)" },
-            { "e": "Confidence", "m": "आत्मविश्वास", "s1": "Confidence is beautiful.", "s2": "(आत्मविश्वास सुंदर असतो.)" },
-            { "e": "Responsibility", "m": "जबाबदारी", "s1": "Take your responsibility.", "s2": "(तुमची जबाबदारी घ्या.)" },
-            { "e": "Discipline", "m": "शिस्त", "s1": "Discipline is important in life.", "s2": "(जीवनात शिस्त महत्त्वाची आहे.)" },
-            { "e": "Education", "m": "शिक्षण", "s1": "Education changes the world.", "s2": "(शिक्षण जग बदलते.)" },
-            { "e": "Kindness", "m": "दयाळूपणा", "s1": "Kindness costs nothing.", "s2": "(दयाळूपणाला काहीही खर्च येत नाही.)" },
-            { "e": "Forgiveness", "m": "क्षमा", "s1": "Forgiveness is a virtue.", "s2": "(क्षमा हा एक सद्गुण आहे.)" },
-            { "e": "Imagination", "m": "कल्पनाशक्ती", "s1": "Imagination has no limits.", "s2": "(कल्पनाशक्तीला मर्यादा नसतात.)" }
+            { "e": "Curiosity", "p": "क्युरीॉसिटी", "m": "जिज्ञासा", "s1": "Children have a lot of curiosity about nature.", "s2": "(मुलांना निसर्गाबद्दल खूप जिज्ञासा असते.)" },
+            { "e": "Honesty", "p": "ऑनेस्टी", "m": "प्रामाणिकपणा", "s1": "Honesty is the best policy.", "s2": "(प्रामाणिकपणा हे सर्वोत्कृष्ट धोरण आहे.)" },
+            { "e": "Patience", "p": "पेशन्स", "m": "संयम", "s1": "Patience is a key to success.", "s2": "(संयम ही यशाची गुरुकिल्ली आहे.)" },
+            { "e": "Respect", "p": "रिस्पेक्ट", "m": "आदर", "s1": "We should respect our elders.", "s2": "(आपण आपल्या थोरामोठ्यांचा आदर केला पाहिजे.)" },
+            { "e": "Knowledge", "p": "नॉलेज", "m": "ज्ञान", "s1": "Knowledge is power.", "s2": "(ज्ञान हीच शक्ती आहे.)" },
+            { "e": "Brave", "p": "ब्रेव्ह", "m": "शूरवीर", "s1": "Shivaji Maharaj was a brave leader.", "s2": "(शिवाजी महाराज एक शूरवीर नेते होते.)" },
+            { "e": "Nature", "p": "नेचर", "m": "निसर्ग", "s1": "We must protect our nature.", "s2": "(आपण निसर्गाचे रक्षण केले पाहिजे.)" },
+            { "e": "Success", "p": "सक्सेस", "m": "यश", "s1": "Hard work leads to success.", "s2": "(कठोर परिश्रमाने यश मिळते.)" },
+            { "e": "Confidence", "p": "कॉन्फिडन्स", "m": "आत्मविश्वास", "s1": "Confidence is beautiful.", "s2": "(आत्मविश्वास सुंदर असतो.)" },
+            { "e": "Responsibility", "p": "रिस्पॉन्सिबिलिटी", "m": "जबाबदारी", "s1": "Take your responsibility.", "s2": "(तुमची जबाबदारी घ्या.)" },
+            { "e": "Discipline", "p": "डिसिप्लिन", "m": "शिस्त", "s1": "Discipline is important in life.", "s2": "(जीवनात शिस्त महत्त्वाची आहे.)" },
+            { "e": "Education", "p": "एज्युकेशन", "m": "शिक्षण", "s1": "Education changes the world.", "s2": "(शिक्षण जग बदलते.)" },
+            { "e": "Kindness", "p": "काइंडनेस", "m": "दयाळूपणा", "s1": "Kindness costs nothing.", "s2": "(दयाळूपणाला काहीही खर्च येत नाही.)" },
+            { "e": "Forgiveness", "p": "फॉरगिव्हनेस", "m": "क्षमा", "s1": "Forgiveness is a virtue.", "s2": "(क्षमा हा एक सद्गुण आहे.)" },
+            { "e": "Imagination", "p": "इमॅजिनेशन", "m": "कल्पनाशक्ती", "s1": "Imagination has no limits.", "s2": "(कल्पनाशक्तीला मर्यादा नसतात.)" }
         ]
 
         kodeList = [

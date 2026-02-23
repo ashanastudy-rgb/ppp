@@ -263,7 +263,7 @@ export default function Home() {
                   suppressContentEditableWarning
                 >
                   <p>
-                    <strong>English Word :</strong> {data?.english?.e} ({data?.english?.m})
+                    <strong>English Word :</strong> {data?.english?.e} ({data?.english?.p})
                   </p>
                   <p>
                     <strong>मराठी अर्थ :</strong> {data?.english?.m}
